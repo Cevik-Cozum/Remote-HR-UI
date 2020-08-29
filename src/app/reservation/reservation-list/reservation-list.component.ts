@@ -11,26 +11,27 @@ import { ReservationService } from './../../services/reservation.service';
   styleUrls: ['./reservation-list.component.css']
 })
 export class ReservationListComponent implements OnInit {
-
+  reservations:Reservation[];
   reservation: Observable<Reservation[]>;
   modalAdd: boolean;
 
   constructor(
-    private announcementService: ReservationService,
+    private reservationService: ReservationService,
   
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.reloadData();
+    this.reservationService.getReservations().then(reservations=>this.reservations=reservations);
   }
 
   reloadData() {
-    this.reservation = this.announcementService.getReservationList();
+    this.reservation = this.reservationService.getReservationList();
   }
 
   deleteAnnouncement(id: number) {
-    this.announcementService.deleteReservation(id).subscribe(
+    this.reservationService.deleteReservation(id).subscribe(
       (data) => {
         
         this.reloadData();

@@ -1,40 +1,26 @@
-<div class="p-p-5">
-    <div class="p-grid">
-        <div class="p-col-12 p-md-12 p-lg-12" style="background-color: #9456b1">
-            <h4 class="p-ml-2">Servis Rezervasyon</h4>
-            <hr class="p-ml-2 p-mr-2">
-            <div *ngFor="let reservation of reservation | async">
-                <div class="reservation-item p-ml-3">
-                    <div class="reservation-list-detail">
-                        <p class="p-mb-1"><i class="pi pi-user reservation-icon"></i>{{reservation.id}}</p>
-                        <i class="pi pi-calendar reservation-icon"></i>
-                        <p class="p-mb-1"><i class="pi pi-user reservation-icon"></i>{{reservation.chairNum}}</p>
-                        <i class="pi pi-calendar reservation-icon"></i>
-                        <span class="reservation-descriptionx">{{reservation.tableNo}}</span>
-                    </div>
-                    <div class="reservation-list-action p-mr-5">
-                        <span class="p-buttonset">
-                            <button pButton pRipple label="Sil" icon="pi pi-trash"
-                                class="p-button-rounded p-button-danger"
-                                (click)="deleteReservation(reservation.id)"></button>
-                            <button pButton pRipple label="Güncelle" icon="pi pi-pencil"
-                                class="p-button-rounded p-button-danger"
-                                (click)="updateReservation(reservation.id)"></button>
-                        </span>
-                    </div>
-                </div>
-                <hr class="p-ml-4 p-mr-4">
-            </div>
-            <div *ngIf="!( reservation | async)?.length">
-                <div class="reservation-item  p-ml-3">
-                    <div class="reservation-list-detail">
-                        <p class="p-mb-1"><i class="pi pi-info-circle reservation-icon"></i>Rezervasyon bulunmamaktadır.
-                        </p>
-                    </div>
-                </div>
-                <hr class="p-ml-4 p-mr-4">
-            </div>
-            <br>
-        </div>
-    </div>
-</div>
+<h3 style="color:purple;" class="first">Table List</h3>
+<p-table  [value]="reservation">
+    <ng-template pTemplate="header">
+        <tr >
+            <th style="background-color:rgb(217, 174, 247)">id</th>
+            <th style="background-color:rgb(217, 174, 247);">Table no</th>
+            <th style="background-color: rgb(217, 174, 247);">Chair Num</th>
+            
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-car>
+        <tr>
+            <td>{{reservations.id}}</td>
+            <td>{{reservations.tableNo}}</td>
+            <td>{{reservations.chairNo}}</td>
+       
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="footer" let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{col.header}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

@@ -11,7 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
 import { InputNumberModule } from 'primeng/inputnumber';
-
+import{TableModule} from 'primeng/table'
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     DialogModule,
     CalendarModule,
     InputNumberModule,
-    InputTextModule
+    InputTextModule,
+    TableModule
   ]
 })
 export class ReservationModule { }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Reservation } from '../reservation/model/reservation';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,15 @@ export class ReservationService {
   private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient ) {}
-
-  getReservation(id: number): Observable<any> {
+ 
+  getReservations() {
+    return this.http.get<any>('assets/cars-small.json')
+    .toPromise()
+    .then(res => <Reservation[]>res.data)
+    .then(data => { return data; });
+ }
+ 
+ getReservation(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/getbyid/${id}`);
   }
 
