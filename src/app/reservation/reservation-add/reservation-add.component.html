@@ -2,31 +2,31 @@
     <form #reservationAddForm="ngForm" (ngSubmit)="onSubmitSave()">
         <div class="p-fluid">
             <div class="p-field p-col-12">
-                <label for="id">İşlem Numarası Giriniz</label><br>
-                <input type="text" maxlength="25" pInputText id="salon" placeholder="İşlem Numarası Giriniz" #id="ngModel"
+                <label style="color: purple;" for="id">İşlem Numarası Giriniz</label><br>
+                <input style="background-color:rgb(250, 233, 255);" type="text" maxlength="25" pInputText id="salon" placeholder="İşlem Numarası Giriniz" #id="ngModel"
                     [(ngModel)]="reservation.id" name="id" required />
             </div>
         </div>
         <div class="p-fluid">
             <div class="p-field p-col-12">
-                <label for="title">Sandalye Sayısı Giriniz</label><br>
-                <input type="text" maxlength="25" pInputText id="title" placeholder="Sandalye Sayısı Giriniz" #title="ngModel"
+                <label style="color: purple;" for="title">Sandalye Sayısı Giriniz</label><br>
+                <input style="background-color: rgb(250, 233, 255);" type="text" maxlength="25" pInputText id="title" placeholder="Sandalye Sayısı Giriniz" #title="ngModel"
                     [(ngModel)]="reservation.chairNum" name="title" required />
             </div>
         </div>
 
         <div class="p-fluid">
             <div class="p-field p-col-12">
-                <label for="tableNo">İçerik Giriniz</label>
-                <textarea type="text" maxlength="25" pInputText id="tableNo" placeholder="Masa Sayısı Giriniz"
+                <label style="color: purple;" for="tableNo">Masa numarasını giriniz</label>
+                <textarea style="background-color: rgb(250, 233, 255);" type="text" maxlength="25" pInputText id="tableNo" placeholder="Masa Sayısı Giriniz"
                     #tableNo="ngModel" [(ngModel)]="reservation.tableNo" name="tableNo" required> </textarea>
 
             </div>
         </div>
 
         <div class="p-text-right p-mr-2">
-            <p-button type="submit" icon="pi pi-check" label="Reservasyon Ekle" class="p-button-text"
-               ></p-button>
+            <button pButton type="button" label="Ekle" class="p-button-help"></button>
+               
         </div>
     </form>
 </div>
