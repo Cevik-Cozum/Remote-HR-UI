@@ -10,6 +10,8 @@ import { AnnouncementListComponent} from './announcement/announcement-list/annou
 import { AnnouncementUpdateComponent} from './announcement/announcement-update/announcement-update.component';
 import { ReservationAddComponent} from './reservation/reservation-add/reservation-add.component';
 import { ReservationListComponent} from './reservation/reservation-list/reservation-list.component';
+import { ReservationUpdateComponent} from './reservation/reservation-update/reservation-update.component';
+
 import { ToplantiOdasiUpdateComponent } from './toplanti-odasi/toplanti-odasi-update/toplanti-odasi-update.component';
 
 
@@ -30,6 +32,7 @@ const routes: Routes = [
 
   { path: 'reservation-add', component: ReservationAddComponent },
   { path: 'reservation-list', component: ReservationListComponent },
+  { path: 'reservation-update/:id', component: ReservationUpdateComponent },
 
 ];
 
