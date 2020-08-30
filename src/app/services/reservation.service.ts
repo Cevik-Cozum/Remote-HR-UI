@@ -12,30 +12,25 @@ export class ReservationService {
 
   constructor(private http: HttpClient ) {}
  
-  getReservations() {
-    return this.http.get<any>('assets/cars-small.json')
-    .toPromise()
-    .then(res => <Reservation[]>res.data)
-    .then(data => { return data; });
- }
+
  
  getReservation(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/getbyid/${id}`);
+    return this.http.get(`${this.baseUrl}/gettablebyid/${id}`);
   }
 
-  createReservation(employee: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/add`, employee);
+  createReservation(table: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/addtable`, table);
   }
 
   updateReservation(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+    return this.http.put(`${this.baseUrl}/updatetablebyid/${id}`, value);
   }
 
   deleteReservation(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/deletebyid/${id}`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}/deletetablebyid/${id}`, { responseType: 'text' });
   }
 
   getReservationList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/getlist`);
+    return this.http.get(`${this.baseUrl}/gettablelist`);
   }
 }

@@ -23,14 +23,14 @@ export class ReservationListComponent implements OnInit {
 
   ngOnInit(): void {
     this.reloadData();
-    this.reservationService.getReservations().then(reservations=>this.reservations=reservations);
+    
   }
 
   reloadData() {
     this.reservation = this.reservationService.getReservationList();
   }
 
-  deleteAnnouncement(id: number) {
+  deleteReservation(id: number) {
     this.reservationService.deleteReservation(id).subscribe(
       (data) => {
         
@@ -40,8 +40,8 @@ export class ReservationListComponent implements OnInit {
     );
   }
 
-  updateAnnouncement(id: number) {
-    this.router.navigate(['/update', id]);
+  updateReservation(id: number) {
+    this.router.navigate(['reservation-update', id]);
   }
   showBasicDialog() {
     this.modalAdd = true;
