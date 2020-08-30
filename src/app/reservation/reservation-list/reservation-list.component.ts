@@ -23,7 +23,7 @@ export class ReservationListComponent implements OnInit {
 
   ngOnInit(): void {
     this.reloadData();
-    
+  
   }
 
   reloadData() {
@@ -46,6 +46,4 @@ export class ReservationListComponent implements OnInit {
   showBasicDialog() {
     this.modalAdd = true;
   }
-
-
 }

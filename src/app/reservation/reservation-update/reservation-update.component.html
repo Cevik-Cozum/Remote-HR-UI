@@ -1,10 +1,4 @@
-<div class="p-text-center">
-    <p-button (click)="showBasicDialog()" icon="pi pi-plus" label="Reservasyon Güncelle"></p-button>
-</div>
-
-<p-dialog header="Reservasyon Güncelle" [(visible)]="modalAdd" [style]="{width: '50vw'}" [baseZIndex]="10000">
-    <hr>
-    <form #reservationAddForm="ngForm" (ngSubmit)="onSubmitUpdate()">
+     <form #reservationAddForm="ngForm" (ngSubmit)="onSubmitUpdate()">
         <div class="p-fluid">
             <div class="p-field p-col-12">
                 <label for="id">İşlem No Giriniz</label><br>
@@ -29,7 +23,6 @@
         </div>
 
         <div class="p-text-right p-mr-2">
-            <p-button type="submit" icon="pi pi-check" label="Güncelle" class="p-button-text"></p-button>
+            <p-button type="submit"  label="Güncelle" class="p-button-text"></p-button>
         </div>
     </form>
-</p-dialog>
