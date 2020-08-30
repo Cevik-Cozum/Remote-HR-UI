@@ -33,7 +33,7 @@ export class ReservationUpdateComponent implements OnInit {
     );
   }
 
-  updateAnnouncement() {
+  updateReservation() {
     this.reservationService.updateReservation(this.id, this.reservation).subscribe(
       (data) => {
         
@@ -44,10 +44,9 @@ export class ReservationUpdateComponent implements OnInit {
   }
   
 
-  update() {
-  }
+  
   onSubmitUpdate() {
-    this.update();
+    this.updateReservation();
   }
 
   showBasicDialog() {
