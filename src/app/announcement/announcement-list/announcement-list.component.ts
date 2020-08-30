@@ -39,7 +39,7 @@ export class AnnouncementListComponent implements OnInit {
   }
 
   updateAnnouncement(id: number) {
-    this.router.navigate(['/update', id]);
+    this.router.navigate(['/announcement-update', id]);
   }
   showBasicDialog() {
     this.modalAdd = true;
