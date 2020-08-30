@@ -7,6 +7,7 @@ import { ToplantiOdasiListComponent } from './toplanti-odasi/toplanti-odasi-list
 import { BirthdayListComponent } from './dogum-gunu/birthday-list/birthday-list.component';
 import { AnnouncementAddComponent} from './announcement/announcement-add/announcement-add.component';
 import { AnnouncementListComponent} from './announcement/announcement-list/announcement-list.component';
+import { AnnouncementUpdateComponent} from './announcement/announcement-update/announcement-update.component';
 import { ReservationAddComponent} from './reservation/reservation-add/reservation-add.component';
 import { ReservationListComponent} from './reservation/reservation-list/reservation-list.component';
 import { ToplantiOdasiUpdateComponent } from './toplanti-odasi/toplanti-odasi-update/toplanti-odasi-update.component';
@@ -24,8 +25,11 @@ const routes: Routes = [
 
   { path: 'announcement-add', component: AnnouncementAddComponent },
   { path: 'announcement-list', component: AnnouncementListComponent },
+  { path: 'announcement-update/:id', component: AnnouncementUpdateComponent },
+
+
   { path: 'reservation-add', component: ReservationAddComponent },
-  { path: 'reservation-list', component: ReservationListComponent }
+  { path: 'reservation-list', component: ReservationListComponent },
 
 ];
 

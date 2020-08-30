@@ -45,10 +45,8 @@ export class AnnouncementUpdateComponent implements OnInit {
   }
   
 
-  update() {
-  }
   onSubmitUpdate() {
-    this.update();
+    this.updateAnnouncement();
   }
 
   showBasicDialog() {

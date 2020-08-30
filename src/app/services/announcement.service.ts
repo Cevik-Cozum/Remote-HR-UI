@@ -15,12 +15,12 @@ export class AnnouncementService {
     return this.http.get(`${this.baseUrl}/getbyid/${id}`);
   }
 
-  createAnnouncement(employee: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/add`, employee);
+  createAnnouncement(announcement: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/add`, announcement);
   }
 
   updateAnnouncement(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+    return this.http.put(`${this.baseUrl}/updatebyid/${id}`, value);
   }
 
   deleteAnnouncement(id: number): Observable<any> {
