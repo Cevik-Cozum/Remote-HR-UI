@@ -1,0 +1,35 @@
+<div class="p-text-center">
+    <p-button (click)="showBasicDialog()" icon="pi pi-plus" label="Duyuru Güncelle"></p-button>
+</div>
+
+<p-dialog header="Duyuru Güncelle" [(visible)]="modalAdd" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <hr>
+    <form #announcementAddForm="ngForm" (ngSubmit)="onSubmitUpdate()">
+        <div class="p-fluid">
+            <div class="p-field p-col-12">
+                <label for="id">Duyuru No Giriniz</label><br>
+                <input type="text" maxlength="25" pInputText id="id" placeholder="Yeni duyuru giriniz" #id="ngModel"
+                    [(ngModel)]="announcement.id" name="id" required />
+            </div>
+        </div>
+        <div class="p-fluid">
+            <div class="p-field p-col-12">
+                <label for="title">Yeni Başlık Giriniz</label><br>
+                <input type="title" maxlength="25" pInputText id="title" placeholder="Yeni Başlık giriniz" #title="ngModel"
+                    [(ngModel)]="announcement.title" name="title" required />
+            </div>
+        </div>
+
+        <div class="p-fluid">
+            <div class="p-field p-col-12">
+                <label for="description">Yeni İçerik Giriniz</label>
+                    <input type="text" maxlength="25" pInputText id="description" placeholder="Yeni İçerik giriniz"
+                        #description="ngModel" [(ngModel)]="announcement.description" name="description" required />
+            </div>
+        </div>
+
+        <div class="p-text-right p-mr-2">
+            <p-button type="submit" icon="pi pi-check" label="Güncelle" class="p-button-text"></p-button>
+        </div>
+    </form>
+</p-dialog>

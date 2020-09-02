@@ -1,0 +1,39 @@
+<div class="p-p-5">
+    <div class="p-grid">
+        <div class="p-col-12 p-md-12 p-lg-12" style="background-color: #17a2b8">
+            <h4 class="p-ml-2">Toplantı Odası Rezervasyon Sistemi</h4>
+            <hr class="p-ml-2 p-mr-2">
+            <div *ngFor="let toplantiodasi of toplantiodasi | async">
+                <div class="toplanti-odasi-item p-ml-3">
+                    <div class="toplanti-odasi-list-detail">
+                        <p class="p-mb-1"><i class="pi pi-align-justify toplanti-odasi-icon"></i>{{toplantiodasi.salon}}</p>
+                        <p class="p-mb-1"><i class="pi pi-align-justify toplanti-odasi-icon"></i>{{toplantiodasi.konu}}</p>
+                        <i class="pi pi-calendar toplanti-odasi-icon"></i>
+                        <span class="toplantiodasi-tarih">{{toplantiodasi.tarih | date:'dd.MM.yyyy'}}</span>
+                    </div>
+                    <div class="toplanti-odasi-list-action p-mr-5">
+                        <span class="p-buttonset">
+                            <button pButton pRipple label="Sil" icon="pi pi-trash"
+                                class="p-button-rounded p-button-danger"
+                                (click)="deleteToplantiOdasi(toplantiodasi.id)"></button>
+                            <button pButton pRipple label="Güncelle" icon="pi pi-spinner"
+                                class="p-button-rounded p-button-danger"
+                                (click)="updateToplantiOdasi(toplantiodasi.id)"></button>
+                        </span>
+                    </div>
+                </div>
+                <hr class="p-ml-4 p-mr-4">
+            </div>
+            <div *ngIf="!( toplantiodasi | async)?.length">
+                <div class="toplanti-odasi-item  p-ml-3">
+                    <div class="toplanti-odasi-list-detail">
+                        <p class="p-mb-1"><i class="pi pi-info-circle toplanti-odasi-icon"></i>Toplantı bulunmamaktadır.
+                        </p>
+                    </div>
+                </div>
+                <hr class="p-ml-4 p-mr-4">
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+   <div class="p-col-12 p-md-12 p-lg-12" style="background-color: #c898f0">
+            <h4 class="p-ml-2">Masa Rezervasyon Sistemi</h4>
+               <div *ngFor="let reservation of reservation | async">
+                <div class="reservation-item p-ml-3">
+                    <div class="reservation-list-detail">
+                        <p class="p-mb-1"><i class="pi pi-align-justify reservation-icon"></i>{{reservation.id}}</p>
+                        <p class="p-mb-1"><i class="pi pi-align-justify reservation-icon"></i>{{reservation.tableNo}}</p>
+                        <p class="p-mb-1"><i class="pi pi-align-justify reservation-icon"></i>{{reservation.chairNum}}</p>
+                        
+                    </div>
+                    <div class="reservation-list-action p-ml-5">
+                        <span class="p-buttonset">
+                            <button pButton pRipple label="Sil" 
+                                class="p-button-raised p-button-danger"
+                                (click)="deleteReservation(reservation.id)"></button><br>
+                            <button pButton pRipple label="Güncelle" 
+                                class="p-button-raised p-button-success"
+                                (click)="updateReservation(reservation.id)"></button>
+                        </span>
+                    </div>
+                </div>
+                <hr class="p-ml-4 p-mr-4">
+            </div>
+            <div *ngIf="!( reservation | async)?.length">
+                <div class="reservation-item  p-ml-3">
+                    <div class="reservation-list-detail">
+                        
+                    </div>
+                </div>
+                <hr class="p-ml-4 p-mr-4">
+            </div>
+            <br>
+        </div>
+    

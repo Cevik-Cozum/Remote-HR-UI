@@ -1,0 +1,40 @@
+<div class="p-p-5">
+    <div class="p-grid">
+        <div class="p-col-12 p-md-12 p-lg-12" style="background-color: #888f91">
+            <h4 class="p-ml-2">Şirket Duyuruları</h4>
+            <hr class="p-ml-2 p-mr-2">
+            <div *ngFor="let announcement of announcement | async">
+                <div class="announcement-item p-ml-3">
+                    <div class="announcement-list-detail">
+                        <p class="p-mb-1"><i class="pi pi-user announcement-icon"></i>{{announcement.id}}</p>
+                        <i class="pi pi-calendar announcement-icon"></i>
+                        <p class="p-mb-1"><i class="pi pi-user announcement-icon"></i>{{announcement.title}}</p>
+                        <i class="pi pi-calendar announcement-icon"></i>
+                        <span class="announcement-descriptionx">{{announcement.description}}</span>
+                    </div>
+                    <div class="announcement-list-action p-mr-5">
+                        <span class="p-buttonset">
+                            <button pButton pRipple label="Sil" icon="pi pi-trash"
+                                class="p-button-rounded p-button-danger"
+                                (click)="deleteAnnouncement(announcement.id)"></button>
+                            <button pButton pRipple label="Güncelle" icon="pi pi-pencil"
+                                class="p-button-rounded p-button-danger"
+                                (click)="updateAnnouncement(announcement.id)"></button>
+                        </span>
+                    </div>
+                </div>
+                <hr class="p-ml-4 p-mr-4">
+            </div>
+            <div *ngIf="!( announcement | async)?.length">
+                <div class="announcement-item  p-ml-3">
+                    <div class="announcement-list-detail">
+                        <p class="p-mb-1"><i class="pi pi-info-circle announcement-icon"></i>Duyuru bulunmamaktadır.
+                        </p>
+                    </div>
+                </div>
+                <hr class="p-ml-4 p-mr-4">
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

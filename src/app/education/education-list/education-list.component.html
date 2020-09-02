@@ -1,0 +1,25 @@
+<div class="p-p-5">
+    <p-table [value]="employees">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Eğitim</th>
+                <th>Eğitmen</th>
+                <th>Ders Linki</th>
+                <th>İşlemler</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-employee>
+            <tr>
+                <td>{{employee.firstName}}</td>
+                <td>{{employee.lastName}}</td>
+                <td>{{employee.emailId}}</td>
+                <td>
+                    <span class="p-buttonset">
+                        <button (click)="deleteEmployee(employee.id)"  class="p p-mr-2" pButton pRipple label="Sil" icon="pi pi-trash"></button>
+                        <button (click)="updateEmployee(employee.id)" pButton pRipple label="Güncelle" icon="pi pi-pencil"></button>
+                    </span>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

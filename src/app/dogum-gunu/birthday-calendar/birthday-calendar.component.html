@@ -1,0 +1,52 @@
+<!-- Spinner -->
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="timer" [fullScreen]="true">
+    <p style="color: white;font-size:18px"> Yükleniyor... </p>
+</ngx-spinner>
+
+<!-- Takvim Yüklemesi -->
+<div class="p-p-1">
+    <full-calendar [options]="calendarOptions"></full-calendar>
+</div>
+
+<!-- Doğum Günü Ekle Penceresi -->
+<p-dialog header="Doğum Günü Ekle" [(visible)]="modalAdd" [modal]="true" [style]="{width: '35vw'}" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false" [contentStyle]="{'overflow': 'visible'}">
+    <hr>
+    <form #birthdayAddForm="ngForm" (ngSubmit)="onSubmitSave()">
+        <div class="p-fluid">
+            <div class="p-field p-col-12">
+                <label for="title">Kimin Doğum Günü?</label>
+                <span class="p-input-icon-right">
+                    <i class="pi pi-user" style="color:#0D89EC;"></i>
+                    <input type="text" maxlength="25" pInputText id="title" placeholder="İsim giriniz" #title="ngModel"
+                        [(ngModel)]="birthdayObject.title" name="title" required />
+                </span>
+            </div>
+            <div class="p-field p-col-12">
+                <label for="yearCount">Kaç Yıl Boyunca Takvime Kaydedilsin?</label>
+                <p-inputNumber mode="decimal" [showButtons]="true" id="yearCount" name="yearCount" [min]="1" [max]="100"
+                    #yearCount="ngModel" [(ngModel)]="saveYearCounter" required>
+                </p-inputNumber>
+            </div>
+        </div>
+        <div class="p-text-right p-mr-2">
+            <p-button type="submit" icon="pi pi-check" label="Kaydet" class="p-button-text"
+                [disabled]="birthdayAddForm.invalid"></p-button>
+        </div>
+    </form>
+</p-dialog>
+
+<!-- Doğum Günü Detayları Penceresi -->
+<p-dialog header="Doğum Günü Detayları" [(visible)]="modalView" [style]="{width: '35vw'}" [baseZIndex]="10000">
+    <hr>
+    <div>
+        <p>
+            <i class="pi pi-user p-mr-2"></i>
+            {{infoEventTitle}}
+        </p>
+        <p>
+            <i class="pi pi-calendar p-mr-2"></i>
+            {{infoEventDate}}
+        </p>
+    </div>
+</p-dialog>

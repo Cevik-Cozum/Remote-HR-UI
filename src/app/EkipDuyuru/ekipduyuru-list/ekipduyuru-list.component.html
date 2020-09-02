@@ -1,0 +1,40 @@
+<div class="p-p-5">
+    <div class="p-grid">
+        <div class="p-col-12 p-md-12 p-lg-12" style="background-color: #17a2b8">
+            <h4 class="p-ml-2">Ekip Ekip Duyuru Paneli</h4>
+            <hr class="p-ml-2 p-mr-2">
+            <div *ngFor="let ekipduyuru of ekipduyuru | async">
+                <div class="ekipduyuru-item p-ml-3">
+                    <div class="ekipduyuru-list-detail">
+                        <p class="p-mb-1"><i class="pi pi-user ekipduyuru-icon"></i>{{ekipduyuru.ekip}}</p>
+                        <i class="pi pi-calendar ekipduyuru-icon"></i>
+                        <p class="p-mb-1"><i class="pi pi-user ekipduyuru-icon"></i>{{ekipduyuru.duyuru}}</p>
+                        <i class="pi pi-calendar ekipduyuru-icon"></i>
+                        <span class="ekipduyuru-tarih">{{ekipduyuru.tarih | date:'dd.MM.yyyy'}}</span>
+                    </div>
+                    <div class="ekipduyuru-list-action p-mr-5">
+                        <span class="p-buttonset">
+                            <button pButton pRipple label="Sil" icon="pi pi-trash"
+                                class="p-button-rounded p-button-danger"
+                                (click)="deleteEkipDuyuru(ekipduyuru.id)"></button>
+                            <button pButton pRipple label="Güncelle" icon="pi pi-pencil"
+                                class="p-button-rounded p-button-danger"
+                                (click)="updateEkipDuyuru(ekipduyuru.id)"></button>
+                        </span>
+                    </div>
+                </div>
+                <hr class="p-ml-4 p-mr-4">
+            </div>
+            <div *ngIf="!( ekipduyuru | async)?.length">
+                <div class="ekipduyuru-item  p-ml-3">
+                    <div class="ekipduyuru-list-detail">
+                        <p class="p-mb-1"><i class="pi pi-info-circle ekipduyuru-icon"></i>Duyuru bulunmamaktadır.
+                        </p>
+                    </div>
+                </div>
+                <hr class="p-ml-4 p-mr-4">
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

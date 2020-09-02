@@ -1,0 +1,28 @@
+     <form #reservationAddForm="ngForm" (ngSubmit)="onSubmitUpdate()">
+        <div class="p-fluid">
+            <div class="p-field p-col-12">
+                <label for="id">İşlem No Giriniz</label><br>
+                <input type="text" maxlength="25" pInputText id="id" placeholder="Yeni işlem no giriniz" #id="ngModel"
+                    [(ngModel)]="reservation.id" name="id" required />
+            </div>
+        </div>
+        <div class="p-fluid">
+            <div class="p-field p-col-12">
+                <label for="chairNum">Yeni Sandalye Sayısı Giriniz</label><br>
+                <input type="chairNum" maxlength="25" pInputText id="chairNum" placeholder="Yeni sandalye sayısı giriniz" #chairNum="ngModel"
+                    [(ngModel)]="reservation.chairNum" name="chairNum" required />
+            </div>
+        </div>
+
+        <div class="p-fluid">
+            <div class="p-field p-col-12">
+                <label for="tableNo">Yeni Masa No Giriniz</label>
+                    <input type="text" maxlength="25" pInputText id="tableNo" placeholder="Yeni Masa No giriniz"
+                        #tableNo="ngModel" [(ngModel)]="reservation.tableNo" name="tableNo" required />
+            </div>
+        </div>
+
+        <div class="p-text-right p-mr-2">
+            <p-button type="submit"  label="Güncelle" class="p-button-text"></p-button>
+        </div>
+    </form>

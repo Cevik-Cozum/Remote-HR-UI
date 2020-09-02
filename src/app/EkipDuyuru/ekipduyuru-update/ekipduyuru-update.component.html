@@ -1,0 +1,38 @@
+<div class="p-text-center">
+    <p-button (click)="showBasicDialog()" icon="pi pi-plus" label="Duyuru Güncelle"></p-button>
+</div>
+
+<p-dialog header="Duyuru Güncelle" [(visible)]="modalAdd" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <hr>
+    <form #ekipduyuruAddForm="ngForm" (ngSubmit)="onSubmitUpdate()">
+        <div class="p-fluid">
+            <div class="p-field p-col-12">
+                <label for="ekip">Yeni Ekip Adı Giriniz</label><br>
+                <input type="text" maxlength="25" pInputText id="ekip" placeholder="Yeni Ekip Adı Giriniz" #ekip="ngModel"
+                    [(ngModel)]="ekipduyuru.ekip" name="ekip" required />
+            </div>
+        </div>
+        <div class="p-fluid">
+            <div class="p-field p-col-12">
+                <label for="duyuru">Yeni Duyuru Giriniz</label><br>
+                <input type="text" maxlength="25" pInputText id="duyuru" placeholder="Yeni Duyuru Giriniz" #duyuru="ngModel"
+                    [(ngModel)]="ekipduyuru.duyuru" name="duyuru" required />
+            </div>
+        </div>
+
+        <div class="p-fluid">
+            <div class="p-field p-col-12">
+                <label for="tarih">Yeni Duyuru Tarihi Giriniz</label>
+                
+                    <input type="text" maxlength="25" pInputText id="tarih" placeholder="Yeni Duyuru Tarihi giriniz"
+                        #tarih="ngModel"   [(ngModel)]="ekipduyuru.tarih" name="tarih" required />
+               
+            </div>
+        </div>
+
+        <div class="p-text-right p-mr-2">
+            <p-button type="submit" icon="pi pi-check" label="Güncelle" class="p-button-text"
+                [disabled]="ekipduyuruAddForm.invalid"></p-button>
+        </div>
+    </form>
+</p-dialog>
